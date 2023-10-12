@@ -1,0 +1,22 @@
+#The Silver Bullets
+#Ethan Looper, Chatham Stokes, Sean Bolt
+#Unnamed Choose your own adventure dungeon crawler RPG
+#Inputs: User inputs Player Name, inputs player choices based of prompts
+#Outputs: 
+#Change Log
+#Date       Programmer      Description
+#--------------------------------------
+#10/12/23   Sean Bolt       Created file, collaboated to make single-input
+#                           program where user is able to enter name, also
+#                           prints starting contextual information
+
+
+
+
+print("Welcome to the dungeon, adventurer!")
+print("In this game, you will attempt to progress through 10 levels")
+print("On the last level, you must defeat the boss")
+print("Player level determines combat success chance")
+print("The player can choose to fight or flee from all combats except boss")
+player_name = input("What is your name?")
+print("Good luck, " +player_name+"!")
