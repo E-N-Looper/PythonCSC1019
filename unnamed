@@ -12,7 +12,8 @@
 #10/24/23   Sean Bolt       Created an input validation function to be called in 
 #                           other functions and main
 #10/24/23   Sean Bolt       Created array variable which holds various player
-#                           attributes, such as their level and health
+#                           attributes, such as their level and health, also
+#                           starting player room info and map array variable
 
 room = 0
 def check_input(option_count, input_type):#function definition for input validation
