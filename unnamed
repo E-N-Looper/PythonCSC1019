@@ -13,18 +13,20 @@
 #                           other functions and main
 
 
-def check_input(option_count, input_type):
-  keep_going = True
+def check_input(option_count, input_type):#function definition for input validation
+  keep_going = True#sentinel for input check loop
   while keep_going == True:
-    if (input_type == "int"):
-      user_num = input("Enter a number from 1 to "+str(option_count))
-      if user_num.strip().isdigit():
-        user_num = int(user_num)
-        if user_num <=option_count and user_num >=1:
+    if (input_type == "int"):#not necessary if only needing ints, but might need other type inputs later
+      user_num = input("Enter a number from 1 to "+str(option_count))#user input 
+      if user_num.strip().isdigit():#checks if input is string
+        user_num = int(user_num)#makes input into int
+        if user_num <=option_count and user_num >=1:#check for correct input
           keep_going = False
           return user_num
         else:
           print("Invalid input, please try again")
+    else:
+      print("Invalid input, please try again")#error messages^
 
 
 
@@ -47,22 +49,3 @@ print("Good luck, " +player_name+"!")
 
 
 
-
-
-
-
-
-
-
-
-def check_input(option_count, type):
-  keep_going = true
-  while keep_going == true:
-    if (type == "int"):
-      user_num = input("Enter a number from 1 to "+option_count)
-      if user_num.strip().isdigit():
-        if user_num <=option_count && user_num >=1:
-          keep_going = false
-          return user_num
-        else:
-          print("Invalid input, please try again")
