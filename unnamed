@@ -9,7 +9,22 @@
 #10/12/23   Sean Bolt       Created file, collaboated to make single-input
 #                           program where user is able to enter name, also
 #                           prints starting contextual information
+#10/24/23   Sean Bolt       Created an input validation function to be called in 
+#                           other functions and main
 
+
+def check_input(option_count, input_type):
+  keep_going = True
+  while keep_going == True:
+    if (input_type == "int"):
+      user_num = input("Enter a number from 1 to "+str(option_count))
+      if user_num.strip().isdigit():
+        user_num = int(user_num)
+        if user_num <=option_count and user_num >=1:
+          keep_going = False
+          return user_num
+        else:
+          print("Invalid input, please try again")
 
 
 
@@ -20,3 +35,34 @@ print("Player level determines combat success chance")
 print("The player can choose to fight or flee from all combats except boss")
 player_name = input("What is your name?")
 print("Good luck, " +player_name+"!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def check_input(option_count, type):
+  keep_going = true
+  while keep_going == true:
+    if (type == "int"):
+      user_num = input("Enter a number from 1 to "+option_count)
+      if user_num.strip().isdigit():
+        if user_num <=option_count && user_num >=1:
+          keep_going = false
+          return user_num
+        else:
+          print("Invalid input, please try again")
