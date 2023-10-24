@@ -31,7 +31,8 @@ def check_input(option_count, input_type):#function definition for input validat
       print("Invalid input, please try again")#error messages^
 
 def create_map(size):
-    if size == 1:
+    if size == 1:#fills arrays of different types with 0 to represent
+#unexplored rooms. When explored, will change to 1
         map = [[0, 0, 0],
                [0, 0, 0],
                [0, 0, 0]]
