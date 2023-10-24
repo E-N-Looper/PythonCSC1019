@@ -11,8 +11,10 @@
 #                           prints starting contextual information
 #10/24/23   Sean Bolt       Created an input validation function to be called in 
 #                           other functions and main
+#10/24/23   Sean Bolt       Created array variable which holds various player
+#                           attributes, such as their level and health
 
-
+room = 0
 def check_input(option_count, input_type):#function definition for input validation
   keep_going = True#sentinel for input check loop
   while keep_going == True:
@@ -28,7 +30,29 @@ def check_input(option_count, input_type):#function definition for input validat
     else:
       print("Invalid input, please try again")#error messages^
 
-
+def create_map(size):
+    if size == 1:
+        map = [[0, 0, 0],
+               [0, 0, 0],
+               [0, 0, 0]]
+    elif size == 2:
+        map = [[0, 0, 0, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0]]
+    elif size == 3:
+        map = [[0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0],
+               [0, 0, 0, 0, 0]]
+    elif size == 4:
+        map = [[0, 0, 0, 0, 0, 0,],
+                [0, 0, 0, 0, 0, 0,],
+                [0, 0, 0, 0, 0, 0,],
+                [0, 0, 0, 0, 0, 0,],
+                [0, 0, 0, 0, 0, 0,],
+                [0, 0, 0, 0, 0, 0,]]
 
 print("Welcome to the dungeon, adventurer!")
 print("In this game, you will attempt to progress through 10 levels")
@@ -38,8 +62,11 @@ print("The player can choose to fight or flee from all combats except boss")
 player_name = input("What is your name?")
 print("Good luck, " +player_name+"!")
 
+player_stats = [0, 100, 0]#array variable, level, health, healing potion amount
+print("You enter the dungeon")
 
-
+player_stats = [0, 100, 0]#array variable, level, health, healing potion amount
+print("You enter the dungeon")
 
 
 
