@@ -13,7 +13,9 @@
 #                           other functions and main
 #10/24/23   Sean Bolt       Created array variable which holds various player
 #                           attributes, such as their level and health, also
-#                           starting player room info and map array variable
+#                           starting player room info and map array 
+#10/29/23   All             Created definitions for a few functions as well as 
+#                           repitition and decision stuctures in user input validation loop
 
 room = 0
 def check_input(option_count, input_type):#function definition for input validation
