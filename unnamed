@@ -70,7 +70,8 @@ print("The player can choose to fight or flee from all combats except boss")
 player_name = input("What is your name?")
 print("Good luck, " +player_name+"!")
 
-global player_stats = [0, 100, 0]#array variable, level, health, healing potion amount
+global player_stats = [0, 100, 0, 0, 0]#array variable, level, health, 
+#healing potion amount, X location, Y location
 print("You enter the dungeon")
 
 #
@@ -92,15 +93,8 @@ def movement(x_value, y_value, discovered, game_win):
     enemy_stats = [enemy_alive, enemy_health, enemy_attack]
     
     while gamer_status == 0:
-        player_input = int(input(" [1] Left [5] Forward [2] Backward [3] Right "))
-        if player_input == 1:
-            x_value -= 1
-        elif player_input == 2:
-            y_value -= 1
-        elif player_input == 3:
-            x_value += 1
-        elif player_input == 5:
-            y_value += 1
+        player_input = check_input(" [1] Left [5] Forward [2] Backward [3] Right ", int))
+        
         room_id[0] = x_value
         room_id[1] = y_value
         print(f"Current location: {room_id}")
@@ -120,7 +114,9 @@ def movement(x_value, y_value, discovered, game_win):
 movement(x_value, y_value, discovered, game_win)
 
 
-
+def move_check(direction):
+  if direction == 1:
+    if 
 
 
 
