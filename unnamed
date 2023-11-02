@@ -16,6 +16,7 @@
 #                           starting player room info and map array 
 #10/29/23   All             Created definitions for a few functions as well as 
 #                           repitition and decision stuctures in user input validation loop
+#11/2/23    Ethan Looper    Created navigation functions and beginning combat functions
 
 room = 0
 def check_input(option_count, input_type):#function definition for input validation
