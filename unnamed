@@ -40,22 +40,22 @@ def move_player(direction):
 def create_map(size):
     if size == 1:#fills arrays of different types with 0 to represent
 #unexplored rooms. When explored, will change to 1
-        global map = [[3, 0, 0],
+        global map = [[2, 0, 0],
                [0, 0, 0],
                [0, 0, 0]]
     elif size == 2:
-        global map = [[3, 0, 0, 0],
+        global map = [[2, 0, 0, 0],
                [0, 0, 0, 0],
                [0, 0, 0, 0],
                [0, 0, 0, 0]]
     elif size == 3:
-        global map = [[3, 0, 0, 0, 0],
+        global map = [[2, 0, 0, 0, 0],
                [0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0]]
     elif size == 4:
-        global map = [[3, 0, 0, 0, 0, 0,],
+        global map = [[2, 0, 0, 0, 0, 0,],
                 [0, 0, 0, 0, 0, 0,],
                 [0, 0, 0, 0, 0, 0,],
                 [0, 0, 0, 0, 0, 0,],
