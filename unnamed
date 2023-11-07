@@ -37,30 +37,11 @@ def get_player_location():
   pass
 def move_player(direction):
   pass
-def create_map(size):
-    if size == 1:#fills arrays of different types with 0 to represent
-#unexplored rooms. When explored, will change to 1
-        global map = [[2, 0, 0],
-               [0, 0, 0],
-               [0, 0, 0]]
-    elif size == 2:
-        global map = [[2, 0, 0, 0],
-               [0, 0, 0, 0],
-               [0, 0, 0, 0],
-               [0, 0, 0, 0]]
-    elif size == 3:
-        global map = [[2, 0, 0, 0, 0],
-               [0, 0, 0, 0, 0],
-               [0, 0, 0, 0, 0],
-               [0, 0, 0, 0, 0],
-               [0, 0, 0, 0, 0]]
-    elif size == 4:
-        global map = [[2, 0, 0, 0, 0, 0,],
-                [0, 0, 0, 0, 0, 0,],
-                [0, 0, 0, 0, 0, 0,],
-                [0, 0, 0, 0, 0, 0,],
-                [0, 0, 0, 0, 0, 0,],
-                [0, 0, 0, 0, 0, 0,]]
+def create_map():
+    #fills array with 0 to represent unexplored rooms. When explored, will change to 1
+    global map
+    map = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 
 print("Welcome to the dungeon, adventurer!")
 print("In this game, you will attempt to progress through 10 levels")
@@ -70,7 +51,8 @@ print("The player can choose to fight or flee from all combats except boss")
 player_name = input("What is your name?")
 print("Good luck, " +player_name+"!")
 
-global player_stats = [0, 100, 0, 0, 0]#array variable, level, health, 
+global player_stats
+player_stats= [0, 100, 0, 0, 0]#level, health, healing potion amount 
 #healing potion amount, X location, Y location
 print("You enter the dungeon")
 
