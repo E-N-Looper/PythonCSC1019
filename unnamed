@@ -88,25 +88,20 @@ print("You enter the dungeon")
 #
 
 from random import randint
-
-x_value = 0
-y_value = 0
-discovered = 0
 gamer_status = 0    # Status 0 for regular, 
 
 def movement(x_value, y_value, discovered, game_win):
-    room_id = [x_value, y_value, discovered]
+    
     enemy_alive = 0
     enemy_health = 0
     enemy_attack = 0
     enemy_stats = [enemy_alive, enemy_health, enemy_attack]
     
     while gamer_status == 0:
-        player_input = check_input(" [1] Left [5] Forward [2] Backward [3] Right ", int))
         
-        room_id[0] = x_value
-        room_id[1] = y_value
-        print(f"Current location: {room_id}")
+        
+        
+        
         
         # Chance encounter logic after each movement
         chance_encounter = randint(1, 100)
@@ -120,12 +115,9 @@ def movement(x_value, y_value, discovered, game_win):
             print("No enemies encountered.")
 
 # Call the movement function with initial values
-movement(x_value, y_value, discovered, game_win)
+movement()
 
 
-def move_check(direction):
-  if direction == 1:
-    if 
 
 
 
