@@ -17,6 +17,7 @@
 #10/29/23   All             Created definitions for a few functions as well as 
 #                           repitition and decision stuctures in user input validation loop
 #11/2/23    Ethan Looper    Created navigation functions and beginning combat functions
+#11/9/23    Sean Bolt       Made player not able to exit map via check_move function
 
 room = 0
 def check_input(option_count, input_type):#function definition for input validation
@@ -33,6 +34,18 @@ def check_input(option_count, input_type):#function definition for input validat
           print("Invalid input, please try again")
     else:
       print("Invalid input, please try again")#error messages^
+def check_move(direction):#1 left, 2 down, 3 right, 5 up
+    player_location = map.index(2)
+    if player_location < 4 and direction == 5:
+        return False
+    elif player_location % 4 == 0 and direction == 1:
+        return False
+    elif player_location > 11 and direction == 2:
+        return False
+    elif player_location %4 == 3 and direction == 3:
+        return False
+    else:
+        return True
 def get_player_location():
   pass
 def move_player(direction):
@@ -60,7 +73,7 @@ print("You enter the dungeon")
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 
-from random  # Make sure to import randint
+from random import randint
 
 x_value = 0
 y_value = 0
