@@ -36,6 +36,8 @@ def check_input(option_count, input_type):#function definition for input validat
       print("Invalid input, please try again")#error messages^
 def check_move(direction):#1 left, 2 down, 3 right, 5 up
     player_location = map.index(2)
+    if direction == 4:
+        return False
     if player_location < 4 and direction == 5:
         return False
     elif player_location % 4 == 0 and direction == 1:
@@ -45,6 +47,18 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
     elif player_location %4 == 3 and direction == 3:
         return False
     else:
+        if direction == 1:
+            map[player_location - 1] = 2
+            map[player_location] = 1
+        if direction == 2:
+            map[player_location + 4] = 2
+            map[player_location] = 1
+        if direction == 3:
+            map[player_location + 1] = 2
+            map[player_location] = 1
+        if direction == 5:
+            map[player_location - 4] = 2
+            map[player_location] = 1
         return True
 def get_player_location():
   pass
