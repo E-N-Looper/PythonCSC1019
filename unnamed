@@ -19,6 +19,7 @@
 #11/2/23    Ethan Looper    Created navigation functions and beginning combat functions
 #11/9/23    Sean Bolt       Made player not able to exit map via check_move function
 
+player_entering_discovered = 0 #1 if player attempts to enter previous room
 room = 0
 def check_input(option_count, input_type):#function definition for input validation
   keep_going = True#sentinel for input check loop
@@ -48,17 +49,33 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
         return False
     else:
         if direction == 1:
-            map[player_location - 1] = 2
-            map[player_location] = 1
+            if map[player_location - 1] == 1:
+              player_entering_discovered = 1
+            else:
+              player_entering_discovered = 0
+              map[player_location - 1] = 2
+              map[player_location] = 1
         if direction == 2:
-            map[player_location + 4] = 2
-            map[player_location] = 1
+            if map[player_location + 4] == 1:
+              player_entering_discovered = 1
+            else:
+              player_entering_discovered = 0
+              map[player_location + 4] = 2
+              map[player_location] = 1
         if direction == 3:
-            map[player_location + 1] = 2
-            map[player_location] = 1
+            if map[player_location + 1] == 1:
+              player_entering_discovered = 1
+            else:
+              player_entering_discovered = 0
+              map[player_location + 1] = 2
+              map[player_location] = 1
         if direction == 5:
-            map[player_location - 4] = 2
-            map[player_location] = 1
+            if map[player_location + 1] == 1:
+              player_entering_discovered = 1
+            else:
+              player_entering_discovered = 0
+              map[player_location - 4] = 2
+              map[player_location] = 1
         return True
 def get_player_location():
   pass
