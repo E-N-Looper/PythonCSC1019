@@ -77,6 +77,8 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
           if direction == 1:
               if map[player_location - 1] == 1:
                 player_entering_discovered = 1
+                map[player_location - 1] = 2
+                map[player_location] = 1
               else:
                 player_entering_discovered = 0
                 map[player_location - 1] = 2
@@ -84,6 +86,8 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
           if direction == 2:
               if map[player_location + 4] == 1:
                 player_entering_discovered = 1
+                map[player_location + 4] = 2
+                map[player_location] = 1
               else:
                 player_entering_discovered = 0
                 map[player_location + 4] = 2
@@ -91,13 +95,17 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
           if direction == 3:
               if map[player_location + 1] == 1:
                 player_entering_discovered = 1
+                map[player_location + 1] = 2
+                map[player_location] = 1
               else:
                 player_entering_discovered = 0
                 map[player_location + 1] = 2
                 map[player_location] = 1
           if direction == 5:
-              if map[player_location + 1] == 1:
+              if map[player_location -4] == 1:
                 player_entering_discovered = 1
+                map[player_location - 4] = 2
+                map[player_location] = 1
               else:
                 player_entering_discovered = 0
                 map[player_location - 4] = 2
@@ -106,6 +114,7 @@ def check_move(direction):#1 left, 2 down, 3 right, 5 up
           print("Invalid direction, try again")
           return False
         return True
+    print(player_entering_discovered)
     print(player_location)
 
 def create_map():
@@ -127,7 +136,3 @@ def create_map():
 
 
 main()
-
-
-
-
