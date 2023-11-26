@@ -20,6 +20,8 @@
 #11/9/23    Sean Bolt       Made player not able to exit map via check_move function
 #11/25/23   Ethan Looper    Made combat function and adjusted move-check function
 #                           anc made more comments
+#11/26/23   Sean Bolt       Created function which writes player's name, level and whether or not
+#                           they won to a file, which can be displayed via another function.
 
 from random import randint
 
@@ -34,8 +36,10 @@ def main():
     print("Welcome to the dungeon, adventurer!")
     print("In this game, you will attempt to progress through 10 levels")
     print("On the last level, you must defeat the boss")
-
+    print("User can see player log by entering 0 at combat or movement prompts")
+    
     # PLAYER NAME INPUT
+    global player_name
     player_name = input("What is your name?:  ")
     print("Good luck, " + player_name + "!")
 
@@ -65,6 +69,8 @@ def check_input(option_count, input_type):
             user_num = input("Enter a number from 1 to " + str(option_count) + "(1-Left, 2-Down, 3-Right, 5-Up: ")
             if user_num.strip().isdigit():  # CHECK IF INPUT IS A DIGIT
                 user_num = int(user_num)  # CONVERT INPUT TO INTEGER
+                if user_num == 0:
+                    read_file()
                 if 1 <= user_num <= option_count:  # VALIDATE INPUT RANGE
                     keep_going = False
                     return user_num
@@ -156,6 +162,10 @@ def encounter_enemy():
             # ENEMY'S TURN TO ATTACK
             if random.choice([True, False]):  # 50% CHANCE FOR ENEMY TO HIT OR MISS
                 player_health -= enemy_stats[2]  # REDUCE PLAYER HEALTH IF ENEMY HITS
+                if (player_health <= 0):
+                    println("The enemy has defeated you!")
+                    write_file(False)
+                    break
                 print("The enemy attacks you!", "PLAYER HEALTH:", player_health)
             else:
                 print("The enemy missed the attack!")
@@ -170,6 +180,24 @@ def encounter_enemy():
 def create_map():
     global map
     map = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  # INITIALIZE ALL ROOMS AS UNDISCOVERED (0)
+
+def write_data(win_status):
+    player_file = open('player_log.txt', 'a')
+    player_file.write(player_name +"\n")
+    player_file.write(str(player_stats[0]))
+    if (win_status == True):
+        player_file.write("Win")
+    else:
+        player_file.write("Loss")
+    player_file.close()
+    
+def read_data():
+    player_file = open('player_log.txt', 'r')
+    text_line = player_file.readline()
+    while (text_line != ''):
+        print(text_line)
+        text_line = player_file.readline()
+    player_file.close()
 
 
 # START THE GAME
