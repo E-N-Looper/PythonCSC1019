@@ -22,6 +22,7 @@
 #                           anc made more comments
 #11/26/23   Sean Bolt       Created function which writes player's name, level and whether or not
 #                           they won to a file, which can be displayed via another function.
+#11/28/23   Sean Bolt       Created healing function
 
 from random import randint
 
@@ -198,7 +199,12 @@ def read_data():
         print(text_line)
         text_line = player_file.readline()
     player_file.close()
-
+    
+def heal():
+    if player_stats[1]<100:#is player missing health
+        if player_stats[2]>0:#do they have potions?
+            player_stats[1]+=15#heal player
+            player_stats[2]-=1#take potion
 
 # START THE GAME
 main()
