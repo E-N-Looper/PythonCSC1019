@@ -158,7 +158,7 @@ def check_input(option_count, input_type):
             if user_num.strip().isdigit():  # CHECK IF INPUT IS A DIGIT
                 user_num = int(user_num)  # CONVERT INPUT TO INTEGER
                 if user_num == 0:
-                    read_file()
+                    read_data()
                 if 1 <= user_num <= option_count:  # VALIDATE INPUT RANGE
                     keep_going = False
                     return user_num
