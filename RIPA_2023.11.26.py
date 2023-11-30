@@ -61,6 +61,93 @@ def main():
             print("Invalid direction; You weren't able to move. try again")
             print()
 
+#FUNCTION TO PRINT YOURE DEAD
+import turtle
+
+def youre_dead(message):
+    window = turtle.Screen()
+    window.bgcolor("black")
+
+    pen = turtle.Turtle()
+    pen.color("red")
+    pen.speed(1)
+
+    pen.penup()
+    pen.goto(-100,0)
+    pen.pendown()
+
+    pen.write(message, font =
+              ("Arial", 24, "normal"))
+
+    turtle.done()
+
+youre_dead("YOU'RE DEAD!")
+
+#FUNCTION TO PRINT COMBAT SUCCESSFUL
+import turtle
+
+def combat_successful(message):
+    window = turtle.Screen()
+    window.bgcolor("yellow")
+
+    pen = turtle.Turtle()
+    pen.color("green")
+    pen.speed(1)
+
+    pen.penup()
+    pen.goto(-100,0)
+    pen.pendown()
+
+    pen.write(message, font =
+              ("Arial", 24, "normal"))
+
+    turtle.done()
+
+combat_successful("COMBAT SUCCESSFUL!")
+
+#FUCNTION THAT PRINTS GAME OVER
+import turtle
+
+def game_over(message):
+    window = turtle.Screen()
+    window.bgcolor("red")
+
+    pen = turtle.Turtle()
+    pen.color("black")
+    pen.speed(1)
+
+    pen.penup()
+    pen.goto(-100,0)
+    pen.pendown()
+
+    pen.write(message, font =
+              ("Arial", 24, "normal"))
+
+    turtle.done()
+
+game_over("GAME OVER!")
+
+#FUNCTION THAT PRINTS YOU WON
+import turtle
+
+def you_won(message):
+    window = turtle.Screen()
+    window.bgcolor("orange")
+
+    pen = turtle.Turtle()
+    pen.color("purple")
+    pen.speed(1)
+
+    pen.penup()
+    pen.goto(-100,0)
+    pen.pendown()
+
+    pen.write(message, font =
+              ("Arial", 24, "normal"))
+
+    turtle.done()
+
+you_won("YOU WON!")
 
 # FUNCTION TO VALIDATE PLAYER INPUT
 def check_input(option_count, input_type):
