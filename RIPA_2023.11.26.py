@@ -297,10 +297,10 @@ def get_potions():
     potion_roll = random.randint(0, 100)
     if potion_roll < 50:
         print("0 potions obtained")
-    elif potion_roll < 80
+    elif potion_roll < 80:
         player_stats[2]+=1
         print("1 potions obtained")
-    elif potion_roll < 95
+    elif potion_roll < 95:
         player_stats[2]+=2
         print("2 potions obtained")
     else:
