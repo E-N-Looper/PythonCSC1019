@@ -178,7 +178,7 @@ def check_move(direction):
        (player_location % 4 == 0 and direction == 1) or \
        (player_location > 11 and direction == 2) or \
        (player_location % 4 == 3 and direction == 3):
-        print("Invalid direction, try again")
+        
         return False
 
     # CALCULATE NEW LOCATION BASED ON DIRECTION
@@ -256,7 +256,7 @@ def encounter_enemy():
                     break
                 print("The enemy attacks you!", "PLAYER HEALTH:", player_health)
             else:
-                print("The enemy missed the attack!")
+                print("The enemy missed their attack!")
 
         else:
             print("Invalid input. You missed the opportunity to attack.")
@@ -292,6 +292,7 @@ def heal():
         if player_stats[2]>0:#do they have potions?
             player_stats[1]+=15#heal player
             player_stats[2]-=1#take potion
+            print("You healed 15 HP")
 
 def get_potions():
     potion_roll = random.randint(0, 100)
