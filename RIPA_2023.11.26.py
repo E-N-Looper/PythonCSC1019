@@ -251,7 +251,7 @@ def encounter_enemy():
             if random.choice([True, False]):  # 50% CHANCE FOR ENEMY TO HIT OR MISS
                 player_health -= enemy_stats[2]  # REDUCE PLAYER HEALTH IF ENEMY HITS
                 if (player_health <= 0):
-                    println("The enemy has defeated you!")
+                    print("The enemy has defeated you!")
                     write_file(False)
                     youre_dead("YOU'RE DEAD!")
                     break
