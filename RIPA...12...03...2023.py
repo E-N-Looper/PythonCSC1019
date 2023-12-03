@@ -360,7 +360,7 @@ def boss_encounter():
 
     # COMBAT LOOP FOR BOSS FIGHT
     while boss_stats[1] > 0:
-        player_choice = input("Enter '4' to attack: ")
+        player_choice = input("Enter '4' to attack or 6 to heal: ")
         if player_choice == '6':
             heal()
         elif player_choice == '4':
