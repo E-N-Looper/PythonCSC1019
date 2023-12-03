@@ -291,9 +291,7 @@ def write_data(win_status):
         with open('player_log.txt', 'a') as player_file:
             # Writing player information with annotations
             player_file.write("Player Name: " + player_name + "\n")
-            player_file.write("Level: " + str(player_stats[0]) + "\n")
             player_file.write("Health: " + str(player_stats[1]) + "\n")
-            player_file.write("Healing Potions: " + str(player_stats[2]) + "\n")
             player_file.write("Game Result: " + ("Win\n" if win_status else "Loss\n"))
             player_file.write("--------------------------------------------------\n")
             player_file.close()
@@ -353,6 +351,7 @@ def boss_encounter():
             print(f"You attacked the boss. Boss health: {boss_stats[1]}")
             if boss_stats[1] <= 0:
                 print("BOSS DEFEATED!!")
+                write_data("Won")
                 game_won = 1  # SET GAME WIN CONDITION
                 you_won("YOU WON!")  # CALL THE GAME WON TURTLE GRAPHIC
                 return True
@@ -364,6 +363,7 @@ def boss_encounter():
                 if player_health <= 0:
                     print("The boss has defeated you!")
                     youre_dead("YOU'RE DEAD!")
+                    write_data("Loss")
                     return False
             else:
                 print("The boss missed their attack!")
