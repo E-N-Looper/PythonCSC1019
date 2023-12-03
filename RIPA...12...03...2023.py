@@ -44,7 +44,7 @@ def main():
         print("Welcome to the dungeon, adventurer!")
         print("In this game, you will attempt to progress through 10 levels")
         print("On the last level, you must defeat the boss")
-        print("User can see player log by entering 0 at combat or movement prompts")
+        print("User can see player log by entering 0 at movement prompts")
         
         # PLAYER NAME INPUT
         global player_name
