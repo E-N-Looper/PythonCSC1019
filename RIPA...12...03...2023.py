@@ -1,4 +1,4 @@
-#The Silver Bullets
+l#The Silver Bullets
 #Ethan Looper, Chatham Stokes, Sean Bolt
 #Unnamed Choose your own adventure dungeon crawler RPG
 #Inputs: User inputs Player Name, inputs player choices based of prompts
@@ -165,7 +165,7 @@ def check_input(option_count, input_type):
                 user_num = int(user_num)  # CONVERT INPUT TO INTEGER
                 if user_num == 0:
                     read_data()
-                if 1 <= user_num <= option_count:  # VALIDATE INPUT RANGE
+                elif 1 <= user_num <= option_count:  # VALIDATE INPUT RANGE
                     keep_going = False
                     return user_num
                 else:
@@ -339,8 +339,10 @@ def boss_encounter():
 
     # COMBAT LOOP FOR BOSS FIGHT
     while boss_stats[1] > 0:
-        player_choice = input("Enter '4' to attack: ")
-        if player_choice == '4':
+        player_choice = input("Enter '4' to attack, 6 to heal: ")
+        if player_choice == '6':
+            heal()
+        elif player_choice == '4':
             boss_stats[1] -= 20  # ADJUST ATTACK POWER AS NEEDED
             print(f"You attacked the boss. Boss health: {boss_stats[1]}")
             if boss_stats[1] <= 0:
