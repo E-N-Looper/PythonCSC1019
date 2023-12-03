@@ -36,7 +36,8 @@ def main():
         # INITIALIZE GAME VARIABLES
         player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
         room = 0
-        global game_done = 0
+        global game_done
+        game_done = 0
         write_data("unknown")
         
 
