@@ -81,7 +81,7 @@ def youre_dead(message):
 
     turtle.done()
 
-youre_dead("YOU'RE DEAD!")
+
 
 #FUNCTION TO PRINT COMBAT SUCCESSFUL
 import turtle
@@ -103,7 +103,7 @@ def combat_successful(message):
 
     turtle.done()
 
-combat_successful("COMBAT SUCCESSFUL!")
+
 
 #FUCNTION THAT PRINTS GAME OVER
 import turtle
@@ -147,7 +147,7 @@ def you_won(message):
 
     turtle.done()
 
-you_won("YOU WON!")
+
 
 # FUNCTION TO VALIDATE PLAYER INPUT
 def check_input(option_count, input_type):
@@ -253,6 +253,7 @@ def encounter_enemy():
                 if (player_health <= 0):
                     println("The enemy has defeated you!")
                     write_file(False)
+                    youre_dead("YOU'RE DEAD!")
                     break
                 print("The enemy attacks you!", "PLAYER HEALTH:", player_health)
             else:
@@ -260,7 +261,7 @@ def encounter_enemy():
 
         else:
             print("Invalid input. You missed the opportunity to attack.")
-
+    combat_successful("COMBAT SUCCESSFUL!")
     return True, player_health  # RETURN TUPLE INDICATING ENEMY DEFEATED AND PLAYER HEALTH
 
 
