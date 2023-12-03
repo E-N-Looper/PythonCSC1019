@@ -29,43 +29,45 @@ from random import randint
 
 # MAIN FUNCTION TO START AND MANAGE THE GAME
 def main():
-    # INITIALIZE GAME VARIABLES
-    player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
-    room = 0
-    game_won = 0
-    write_data("unknown")
-    # PRINT GAME INTRODUCTION AND INSTRUCTIONS
-    print("Welcome to the dungeon, adventurer!")
-    print("In this game, you will attempt to progress through 10 levels")
-    print("On the last level, you must defeat the boss")
-    print("User can see player log by entering 0 at combat or movement prompts")
+    play_again = True
+    while play_again:
+        # INITIALIZE GAME VARIABLES
+        player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
+        room = 0
+        game_won = 0
+        write_data("unknown")
+        # PRINT GAME INTRODUCTION AND INSTRUCTIONS
+        print("Welcome to the dungeon, adventurer!")
+        print("In this game, you will attempt to progress through 10 levels")
+        print("On the last level, you must defeat the boss")
+        print("User can see player log by entering 0 at combat or movement prompts")
+        
+        # PLAYER NAME INPUT
+        global player_name
+        player_name = input("What is your name?:  ")
+        print("Good luck, " + player_name + "!")
     
-    # PLAYER NAME INPUT
-    global player_name
-    player_name = input("What is your name?:  ")
-    print("Good luck, " + player_name + "!")
-
-    # CREATE THE GAME MAP
-    create_map()
-
-    # INITIALIZE PLAYER STATS
-    global player_stats
-    player_stats = [0, 100, 0, 0, 0]  # PLAYER STATS: LEVEL, HEALTH, HEALING POTION AMOUNT, X LOCATION, Y LOCATION
-    print("You enter the dungeon")
-
-    # MAIN GAME LOOP
-
-    while game_won == 0:
-        if check_move(check_input(5, "m")):
-            print("\nYour character moved.")
-            print("Location: Room", map.index(2))
-        else:
-            print("Invalid direction; You weren't able to move. try again")
-            print()
-    # IN THE MAIN GAME LOOP
-                 # IF BOSS IS DEFEATED, BREAK OUT OF THE LOOP
-    # ... REST OF THE GAME LOOP ...
-
+        # CREATE THE GAME MAP
+        create_map()
+    
+        # INITIALIZE PLAYER STATS
+        global player_stats
+        player_stats = [0, 100, 0, 0, 0]  # PLAYER STATS: LEVEL, HEALTH, HEALING POTION AMOUNT, X LOCATION, Y LOCATION
+        print("You enter the dungeon")
+    
+        # MAIN GAME LOOP
+    
+        while game_won == 0:
+            if check_move(check_input(5, "m")):
+                print("\nYour character moved.")
+                print("Location: Room", map.index(2))
+            else:
+                print("Invalid direction; You weren't able to move. try again")
+                print()
+        # IN THE MAIN GAME LOOP
+                     # IF BOSS IS DEFEATED, BREAK OUT OF THE LOOP
+        # ... REST OF THE GAME LOOP ...
+    
 
 #FUNCTION TO PRINT YOURE DEAD
 import turtle
@@ -264,6 +266,9 @@ def encounter_enemy():
                     print("The enemy has defeated you!")
                     write_data(False)
                     youre_dead("YOU'RE DEAD!")
+                    user_continue = input("Would you like to play again?(Y/N)")
+                    if user_continue.lower() == "n":
+                        play_again = False
                     return False, 0
                 print("The enemy attacks you!", "PLAYER HEALTH:", player_health)
             else:
@@ -354,6 +359,9 @@ def boss_encounter():
                 write_data("Won")
                 game_won = 1  # SET GAME WIN CONDITION
                 you_won("YOU WON!")  # CALL THE GAME WON TURTLE GRAPHIC
+                user_continue = input("Would you like to play again?(Y/N)")
+                    if user_continue.lower() == "n":
+                        play_again = False
                 return True
 
             # BOSS ATTACK TURN
@@ -364,6 +372,9 @@ def boss_encounter():
                     print("The boss has defeated you!")
                     youre_dead("YOU'RE DEAD!")
                     write_data("Loss")
+                    user_continue = input("Would you like to play again?(Y/N)")
+                    if user_continue.lower() == "n":
+                        play_again = False
                     return False
             else:
                 print("The boss missed their attack!")
