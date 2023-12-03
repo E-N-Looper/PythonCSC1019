@@ -1,4 +1,4 @@
-l#The Silver Bullets
+#The Silver Bullets
 #Ethan Looper, Chatham Stokes, Sean Bolt
 #Unnamed Choose your own adventure dungeon crawler RPG
 #Inputs: User inputs Player Name, inputs player choices based of prompts
@@ -31,11 +31,13 @@ from random import randint
 def main():
     play_again = True
     while play_again:
+        
         # INITIALIZE GAME VARIABLES
         player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
         room = 0
         game_won = 0
         write_data("unknown")
+
         # PRINT GAME INTRODUCTION AND INSTRUCTIONS
         print("Welcome to the dungeon, adventurer!")
         print("In this game, you will attempt to progress through 10 levels")
@@ -46,17 +48,17 @@ def main():
         global player_name
         player_name = input("What is your name?:  ")
         print("Good luck, " + player_name + "!")
-    
+
         # CREATE THE GAME MAP
         create_map()
-    
+
         # INITIALIZE PLAYER STATS
         global player_stats
         player_stats = [0, 100, 0, 0, 0]  # PLAYER STATS: LEVEL, HEALTH, HEALING POTION AMOUNT, X LOCATION, Y LOCATION
         print("You enter the dungeon")
-    
+
         # MAIN GAME LOOP
-    
+
         while game_won == 0:
             if check_move(check_input(5, "m")):
                 if game_won == 1:
@@ -70,10 +72,10 @@ def main():
         # IN THE MAIN GAME LOOP
                      # IF BOSS IS DEFEATED, BREAK OUT OF THE LOOP
         # ... REST OF THE GAME LOOP ...
-    
 
-#FUNCTION TO PRINT YOURE DEAD
-import turtle
+
+    #FUNCTION TO PRINT YOURE DEAD
+    import turtle
 
 def youre_dead(message):
     window = turtle.Screen()
@@ -216,7 +218,7 @@ def check_move(direction):
                 player_stats[1] = updated_health  # UPDATE PLAYER HEALTH
             else:
                 room_discovered = encounter_result
-    
+
             if room_discovered:
                 map[new_location] = 1  # MARK ROOM AS DISCOVERED
                 map[player_location] = 1 if map[player_location] == 2 else map[player_location]
@@ -224,6 +226,7 @@ def check_move(direction):
                 return True
             else:
                 # PLAYER RUNS AWAY; NO MOVEMENT
+                
                 return False
         else:
             # MOVE PLAYER TO NEW LOCATION IF ALREADY DISCOVERED
@@ -255,7 +258,7 @@ def encounter_enemy():
 
     # COMBAT LOOP
     while enemy_stats[1] > 0:
-        player_choice = input("Enter '4' to attack or '6' to heal: ")
+        player_choice = input("Enter '4' to attack or 6 to heal: ")
         if player_choice == '6':
             heal()
         elif player_choice == '4':
@@ -356,7 +359,7 @@ def boss_encounter():
 
     # COMBAT LOOP FOR BOSS FIGHT
     while boss_stats[1] > 0:
-        player_choice = input("Enter '4' to attack, 6 to heal: ")
+        player_choice = input("Enter '4' to attack: ")
         if player_choice == '6':
             heal()
         elif player_choice == '4':
@@ -368,8 +371,8 @@ def boss_encounter():
                 game_won = 1  # SET GAME WIN CONDITION
                 you_won("YOU WON!")  # CALL THE GAME WON TURTLE GRAPHIC
                 user_continue = input("Would you like to play again?(Y/N)")
-                    if user_continue.lower() == "n":
-                        play_again = False
+                if user_continue.lower() == "n":
+                    play_again = False
                 return True
 
             # BOSS ATTACK TURN
@@ -394,4 +397,3 @@ def boss_encounter():
 
 # START THE GAME
 main()
-
