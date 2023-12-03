@@ -208,7 +208,7 @@ def check_move(direction):
     # CHECK FOR UNDISCOVERED ROOMS AND TRIGGER ENEMY ENCOUNTER
     if new_location == 15:
         boss_encounter()
-        game_done = 1
+        
         return True
     else:
         if map[new_location] == 0:
@@ -391,7 +391,7 @@ def boss_encounter():
                 print("The boss missed their attack!")
         else:
             print("Invalid input. You missed the opportunity to attack.")
-
+    game_done = 1
     return False
 
 
