@@ -252,6 +252,7 @@ def encounter_enemy():
             print(f"You attacked the enemy. Enemy health: {enemy_stats[1]}")
             if enemy_stats[1] <= 0:
                 print("ENEMY DEFEATED!!")
+                get_potions()
                 return True, player_health  # RETURN TUPLE INDICATING ENEMY DEFEATED AND PLAYER HEALTH
 
             # ENEMY'S TURN TO ATTACK
