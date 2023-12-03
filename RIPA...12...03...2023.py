@@ -310,6 +310,9 @@ def heal():
             player_stats[1]+=15#heal player
             player_stats[2]-=1#take potion
             print("You healed 15 HP")
+            print("You have " + str(player_stats[2]) + " potions left")
+        else:
+            print("You have no potions")
 
 def get_potions():
     potion_roll = random.randint(0, 100)
