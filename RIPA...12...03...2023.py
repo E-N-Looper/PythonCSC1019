@@ -206,7 +206,7 @@ def check_move(direction):
     # CHECK FOR UNDISCOVERED ROOMS AND TRIGGER ENEMY ENCOUNTER
     if new_location == 15:
         boss_encounter()
-        game_won = 
+        game_won = 1
         return True
     else:
         if map[new_location] == 0:
