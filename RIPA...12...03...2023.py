@@ -25,6 +25,7 @@
 #11/28/23   Sean Bolt       Created healing function and function to get potion
 #11/28/23   Chatham Stokes  Added in turtle graphics to be called throughout the game
 #12/02/23   Ethan Looper    Debugging and Boss Function, fixed the write_file issue.
+#12/03/23   Sean Bolt       Final debugging and fixes
 
 from random import randint
 
