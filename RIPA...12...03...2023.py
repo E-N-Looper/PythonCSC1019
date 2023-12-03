@@ -35,7 +35,7 @@ def main():
         # INITIALIZE GAME VARIABLES
         player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
         room = 0
-        game_won = 0
+        game_done = 0
         write_data("unknown")
 
         # PRINT GAME INTRODUCTION AND INSTRUCTIONS
@@ -59,9 +59,9 @@ def main():
 
         # MAIN GAME LOOP
 
-        while game_won == 0:
+        while game_done == 0:
             if check_move(check_input(5, "m")):
-                if game_won == 1:
+                if game_done == 1:
                     print()
                 else:
                     print("\nYour character moved.")
@@ -208,7 +208,7 @@ def check_move(direction):
     # CHECK FOR UNDISCOVERED ROOMS AND TRIGGER ENEMY ENCOUNTER
     if new_location == 15:
         boss_encounter()
-        game_won = 1
+        game_done = 1
         return True
     else:
         if map[new_location] == 0:
@@ -346,7 +346,7 @@ def get_potions():
         print("2 potions obtained")
 
 def boss_encounter():
-    global game_won
+    global game_done
 
     # BOSS STATS: [ALIVE, HEALTH, ATTACK]
     boss_stats = [1, 100, 20]  # You can adjust these values as needed
@@ -368,7 +368,7 @@ def boss_encounter():
             if boss_stats[1] <= 0:
                 print("BOSS DEFEATED!!")
                 write_data("Won")
-                game_won = 1  # SET GAME WIN CONDITION
+                game_done = 1  # SET GAME WIN CONDITION
                 you_won("YOU WON!")  # CALL THE GAME WON TURTLE GRAPHIC
                 user_continue = input("Would you like to play again?(Y/N)")
                 if user_continue.lower() == "n":
