@@ -36,8 +36,9 @@ def main():
         # INITIALIZE GAME VARIABLES
         player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
         room = 0
-        game_done = 0
+        global game_done = 0
         write_data("unknown")
+        
 
         # PRINT GAME INTRODUCTION AND INSTRUCTIONS
         print("Welcome to the dungeon, adventurer!")
@@ -348,7 +349,7 @@ def get_potions():
         print("2 potions obtained")
 
 def boss_encounter():
-    global game_done
+    
 
     # BOSS STATS: [ALIVE, HEALTH, ATTACK]
     boss_stats = [1, 100, 20]  # You can adjust these values as needed
