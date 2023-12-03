@@ -278,6 +278,7 @@ def encounter_enemy():
                     print("The enemy has defeated you!")
                     write_data(False)
                     youre_dead("YOU'RE DEAD!")
+                    game_done = 1
                     user_continue = input("Would you like to play again?(Y/N)")
                     if user_continue.lower() == "n":
                         play_again = False
@@ -371,28 +372,28 @@ def boss_encounter():
                 write_data("Won")
                 game_done = 1  # SET GAME WIN CONDITION
                 you_won("YOU WON!")  # CALL THE GAME WON TURTLE GRAPHIC
-                user_continue = input("Would you like to play again?(Y/N)")
-                if user_continue.lower() == "n":
-                    play_again = False
-                return True
+                
+                
 
             # BOSS ATTACK TURN
             if random.choice([True, False]):  # 50% CHANCE FOR BOSS TO HIT
                 player_health -= boss_stats[2]
                 print("The boss attacks you!", "PLAYER HEALTH:", player_health)
                 if player_health <= 0:
+                    boss_stats[1] = 0
                     print("The boss has defeated you!")
                     youre_dead("YOU'RE DEAD!")
                     write_data("Loss")
-                    user_continue = input("Would you like to play again?(Y/N)")
-                    if user_continue.lower() == "n":
-                        play_again = False
-                    return False
+                    
+                    
             else:
                 print("The boss missed their attack!")
         else:
             print("Invalid input. You missed the opportunity to attack.")
     game_done = 1
+    user_continue = input("Would you like to play again?(Y/N)")
+    if user_continue.lower() == "n":
+        play_again = False
     return False
 
 
