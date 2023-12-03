@@ -33,7 +33,7 @@ def main():
     player_entering_discovered = 0 # 1 IF PLAYER ATTEMPTS TO ENTER PREVIOUS ROOM
     room = 0
     game_won = 0
-
+    write_data("unknown")
     # PRINT GAME INTRODUCTION AND INSTRUCTIONS
     print("Welcome to the dungeon, adventurer!")
     print("In this game, you will attempt to progress through 10 levels")
@@ -281,14 +281,19 @@ def create_map():
 
 def write_data(win_status):
     # Open the file in append mode
-    with open('player_log.txt', 'a') as player_file:
-        # Writing player information with annotations
-        player_file.write("Player Name: " + player_name + "\n")
-        player_file.write("Level: " + str(player_stats[0]) + "\n")
-        player_file.write("Health: " + str(player_stats[1]) + "\n")
-        player_file.write("Healing Potions: " + str(player_stats[2]) + "\n")
-        player_file.write("Game Result: " + ("Win\n" if win_status else "Loss\n"))
-        player_file.write("--------------------------------------------------\n")
+    if win_status == "unknown":
+        player_file = open('player_log.txt', 'a')
+        player_file.close()
+    else:
+        with open('player_log.txt', 'a') as player_file:
+            # Writing player information with annotations
+            player_file.write("Player Name: " + player_name + "\n")
+            player_file.write("Level: " + str(player_stats[0]) + "\n")
+            player_file.write("Health: " + str(player_stats[1]) + "\n")
+            player_file.write("Healing Potions: " + str(player_stats[2]) + "\n")
+            player_file.write("Game Result: " + ("Win\n" if win_status else "Loss\n"))
+            player_file.write("--------------------------------------------------\n")
+            player_file.close()
 
     
 def read_data():
