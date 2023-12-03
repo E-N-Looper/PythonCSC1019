@@ -246,7 +246,9 @@ def encounter_enemy():
     # COMBAT LOOP
     while enemy_stats[1] > 0:
         player_choice = input("Enter '4' to attack: ")
-        if player_choice == '4':
+        if player_choice == '6':
+            heal()
+        elif player_choice == '4':
             # PLAYER ATTACKS
             enemy_stats[1] -= 15  # PLAYER ATTACKS ENEMY, REDUCING ENEMY'S HEALTH
             print(f"You attacked the enemy. Enemy health: {enemy_stats[1]}")
