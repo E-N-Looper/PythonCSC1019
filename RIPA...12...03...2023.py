@@ -59,8 +59,11 @@ def main():
     
         while game_won == 0:
             if check_move(check_input(5, "m")):
-                print("\nYour character moved.")
-                print("Location: Room", map.index(2))
+                if game_won == 1:
+                    pass()
+                else:
+                    print("\nYour character moved.")
+                    print("Location: Room", map.index(2))
             else:
                 print("Invalid direction; You weren't able to move. try again")
                 print()
@@ -203,6 +206,8 @@ def check_move(direction):
     # CHECK FOR UNDISCOVERED ROOMS AND TRIGGER ENEMY ENCOUNTER
     if new_location == 15:
         boss_encounter()
+        game_won = 
+        return True
     else:
         if map[new_location] == 0:
             encounter_result = encounter_enemy()
