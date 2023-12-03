@@ -201,22 +201,25 @@ def check_move(direction):
         new_location -= 4
 
     # CHECK FOR UNDISCOVERED ROOMS AND TRIGGER ENEMY ENCOUNTER
-    if map[new_location] == 0:
-        encounter_result = encounter_enemy()
-        if isinstance(encounter_result, tuple):
-            room_discovered, updated_health = encounter_result
-            player_stats[1] = updated_health  # UPDATE PLAYER HEALTH
-        else:
-            room_discovered = encounter_result
-
-        if room_discovered:
-            map[new_location] = 1  # MARK ROOM AS DISCOVERED
-            map[player_location] = 1 if map[player_location] == 2 else map[player_location]
-            map[new_location] = 2  # MOVE PLAYER TO NEW LOCATION
-            return True
-        else:
-            # PLAYER RUNS AWAY; NO MOVEMENT
-            return False
+    if new_location == 15:
+        boss_encounter()
+    else:
+        if map[new_location] == 0:
+            encounter_result = encounter_enemy()
+            if isinstance(encounter_result, tuple):
+                room_discovered, updated_health = encounter_result
+                player_stats[1] = updated_health  # UPDATE PLAYER HEALTH
+            else:
+                room_discovered = encounter_result
+    
+            if room_discovered:
+                map[new_location] = 1  # MARK ROOM AS DISCOVERED
+                map[player_location] = 1 if map[player_location] == 2 else map[player_location]
+                map[new_location] = 2  # MOVE PLAYER TO NEW LOCATION
+                return True
+            else:
+                # PLAYER RUNS AWAY; NO MOVEMENT
+                return False
     else:
         # MOVE PLAYER TO NEW LOCATION IF ALREADY DISCOVERED
         map[player_location] = 1 if map[player_location] == 2 else map[player_location]
