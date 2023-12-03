@@ -60,7 +60,7 @@ def main():
         while game_won == 0:
             if check_move(check_input(5, "m")):
                 if game_won == 1:
-                    pass()
+                    print()
                 else:
                     print("\nYour character moved.")
                     print("Location: Room", map.index(2))
