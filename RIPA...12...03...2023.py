@@ -241,6 +241,7 @@ import random
 
 # FUNCTION TO HANDLE ENEMY ENCOUNTERS
 def encounter_enemy():
+    global game_done
     # GENERATE RANDOM NUMBER TO DETERMINE ENEMY TYPE
     enemy_chance = random.randint(1, 100)
     enemy_alive = 1
@@ -349,7 +350,9 @@ def get_potions():
         print("2 potions obtained")
 
 def boss_encounter():
+    global game_done
     
+    game_done = 1
 
     # BOSS STATS: [ALIVE, HEALTH, ATTACK]
     boss_stats = [1, 100, 20]  # You can adjust these values as needed
@@ -391,7 +394,7 @@ def boss_encounter():
                 print("The boss missed their attack!")
         else:
             print("Invalid input. You missed the opportunity to attack.")
-    game_done = 1
+    
     user_continue = input("Would you like to play again?(Y/N)")
     if user_continue.lower() == "n":
         play_again = False
