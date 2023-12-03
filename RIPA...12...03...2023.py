@@ -220,11 +220,11 @@ def check_move(direction):
             else:
                 # PLAYER RUNS AWAY; NO MOVEMENT
                 return False
-    else:
-        # MOVE PLAYER TO NEW LOCATION IF ALREADY DISCOVERED
-        map[player_location] = 1 if map[player_location] == 2 else map[player_location]
-        map[new_location] = 2
-        return True
+        else:
+            # MOVE PLAYER TO NEW LOCATION IF ALREADY DISCOVERED
+            map[player_location] = 1 if map[player_location] == 2 else map[player_location]
+            map[new_location] = 2
+            return True
 
 
 import random
